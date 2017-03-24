@@ -38,3 +38,9 @@ An example output is:
 22/tcp -> 0.0.0.0:32769
 22/tcp -> 0.0.0.0:32768
 ```
+
+If you just want the `IP:PORT` format then use:
+
+```bash
+for i in $(docker ps -q); do docker port "$i" | awk '{ print $3 }'; done;
+```
